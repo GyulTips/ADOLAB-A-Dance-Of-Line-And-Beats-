@@ -7,9 +7,6 @@ using DiscordPresence;
 public class line : MonoBehaviour {
 	
 	
-	//DIY Line v1.0 - script by Pegasi
-	//Please attach me to the line, then set  dline,tail,mcamera,road,decorates,dieeff.
-	//You can add more to make this better!
 	public GameObject dline,tail,mcamera,road,decorates,dieeff;
 
 	private GameObject tempgo,tempdia,tempcr;
@@ -78,8 +75,6 @@ public class line : MonoBehaviour {
 		if (roadmaker) 
 		{
 			temprm += 1;
-			//why there is temprm?to reduce the ammount of roads
-			//why build one when click?to ensure there is road/wall when line turns(or it will look weird)
 			if (temprm % 6 == 1 || Input.GetMouseButtonDown(0) == true || Input.GetKeyDown (KeyCode.Space) == true) 
 			{
 				GameObject.Instantiate (road, dline.transform.position + new Vector3 (3, 0, -3), dline.transform.rotation);
@@ -106,8 +101,7 @@ public class line : MonoBehaviour {
 	void FixedUpdate () 
 	{//smooth camera
 		mcamera.transform.position = Vector3.Lerp (mcamera.transform.position, offset + dline.transform.position, cameraspeed);
-		//
-		//some 'animations' .I didnt use animation component because I dont know how it works in Unity :(
+	
 		foreach (GameObject tempgo in go)
 		{
 			tempgo.transform.position += new Vector3 (0, 0.2f, 0);
